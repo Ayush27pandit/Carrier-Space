@@ -8,6 +8,7 @@ import Empty from "./pages/Empty";
 import Sample from "./pages/Sample";
 import JobPostForm from "./components/layouts/JobPostForm";
 import JobSearch from "./components/layouts/JobSearch";
+import JobSearchForm from "./components/layouts/JobSearchForm";
 
 export const router = createBrowserRouter(
   [
@@ -25,7 +26,7 @@ export const router = createBrowserRouter(
     },
     {
       path: "/jobsearchform",
-      element: <JobPostForm />,
+      element: <JobSearchForm />,
     },
   ],
   {
