@@ -6,6 +6,7 @@ interface FormData {
   skills: string;
   type: string;
   location: string;
+  description: string;
 }
 
 function JobPostForm() {
@@ -15,9 +16,12 @@ function JobPostForm() {
     skills: "",
     type: "",
     location: "",
+    description: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
@@ -44,6 +48,7 @@ function JobPostForm() {
           skills: "",
           type: "",
           location: "",
+          description: "",
         }); // Reset form
       } else {
         alert("Failed to post job. Please try again.");
@@ -113,6 +118,17 @@ function JobPostForm() {
             id="location"
             name="location"
             value={formData.location}
+            onChange={handleChange}
+            required
+            className="text-black"
+          />
+        </div>
+        <div>
+          <label htmlFor="description">Job Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            value={formData.description}
             onChange={handleChange}
             required
             className="text-black"
