@@ -47,7 +47,7 @@ function JobPostForm() {
   return (
     <div>
       <h1>Job Submission Form</h1>
-      <form onSubmit={handleSubmit}>
+      <form className=" space-y-4 " onSubmit={handleSubmit}>
         <div>
           <label htmlFor="jobTitle">Job Title:</label>
           <input
