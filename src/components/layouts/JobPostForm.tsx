@@ -24,7 +24,7 @@ function JobPostForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("/jobpostform", {
+      const response = await fetch("http://localhost:3000/jobpostform", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,12 @@ function JobPostForm() {
             className=" text-black"
           />
         </div>
-        <button type="submit">Submit</button>
+        <button
+          className="bg-blue-400 rounded-lg text-2xl m-1 p-1"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
