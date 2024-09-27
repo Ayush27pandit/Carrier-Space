@@ -17,12 +17,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/jobpostform", (req, res) => {
-  const { jobTitle, companyName, skills } = req.body;
+  const { jobTitle, companyName, skills, location, type } = req.body;
 
   const newUserData = {
     jobTitle,
     companyName,
-    skills: skills.split(",").map((skill) => skill.trim()), // Convert skills to an array
+    skills: skills.split(",").map((skill) => skill.trim()),
+    location,
+    type, // Convert skills to an array
   };
 
   // Read existing data

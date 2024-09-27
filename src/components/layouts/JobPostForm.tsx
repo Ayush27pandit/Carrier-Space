@@ -4,6 +4,8 @@ interface FormData {
   jobTitle: string;
   companyName: string;
   skills: string;
+  type: string;
+  location: string;
 }
 
 function JobPostForm() {
@@ -11,6 +13,8 @@ function JobPostForm() {
     jobTitle: "",
     companyName: "",
     skills: "",
+    type: "",
+    location: "",
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,7 +38,13 @@ function JobPostForm() {
 
       if (response.ok) {
         alert("Job posted successfully!");
-        setFormData({ jobTitle: "", companyName: "", skills: "" }); // Reset form
+        setFormData({
+          jobTitle: "",
+          companyName: "",
+          skills: "",
+          type: "",
+          location: "",
+        }); // Reset form
       } else {
         alert("Failed to post job. Please try again.");
       }
@@ -47,7 +57,7 @@ function JobPostForm() {
   return (
     <div>
       <h1>Job Submission Form</h1>
-      <form className=" space-y-4 " onSubmit={handleSubmit}>
+      <form className="space-y-4" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="jobTitle">Job Title:</label>
           <input
@@ -57,7 +67,7 @@ function JobPostForm() {
             value={formData.jobTitle}
             onChange={handleChange}
             required
-            className=" text-black"
+            className="text-black"
           />
         </div>
         <div>
@@ -69,7 +79,7 @@ function JobPostForm() {
             value={formData.companyName}
             onChange={handleChange}
             required
-            className=" text-black"
+            className="text-black"
           />
         </div>
         <div>
@@ -81,7 +91,31 @@ function JobPostForm() {
             value={formData.skills}
             onChange={handleChange}
             required
-            className=" text-black"
+            className="text-black"
+          />
+        </div>
+        <div>
+          <label htmlFor="type">Job Type (e.g., Full-time, Internship):</label>
+          <input
+            type="text"
+            id="type"
+            name="type"
+            value={formData.type}
+            onChange={handleChange}
+            required
+            className="text-black"
+          />
+        </div>
+        <div>
+          <label htmlFor="location">Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+            className="text-black"
           />
         </div>
         <button
